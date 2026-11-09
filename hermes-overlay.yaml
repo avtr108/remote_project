@@ -13,9 +13,11 @@ delegation:
   provider: anthropic
   model: claude-sonnet-5-5
 
-# Cross-provider failover, tried in order when the primary fails (rate limit, overload,
-# connection or auth errors). Enable once the key for that provider is set, and check the
-# model ID on the provider's model list first. Entries need both provider and model.
-# fallback_providers:
-#   - provider: openrouter
-#     model: <anthropic haiku model id on openrouter>
+# Failover chain, tried in order when the primary fails (rate limit, overload, connection or
+# auth errors). Entries need both provider and model. Same Anthropic key, so it works now.
+fallback_providers:
+  - provider: anthropic
+    model: claude-sonnet-5-5
+  # Cross-provider step: enable once that provider's key is set and the model ID is checked.
+  # - provider: openrouter
+  #   model: <model id from openrouter.ai/models>

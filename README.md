@@ -8,7 +8,7 @@ Personal Hermes Agent on Railway. Based on [arjunkomath/hermes-agent-railway-tem
 |---|---|
 | Main loop: tool calls, routine reasoning | `claude-haiku-5-5` |
 | Delegated subagents: heavy reasoning, writing | `claude-sonnet-5-5` |
-| Cross-provider failover | `fallback_providers` (commented out until a second provider key exists) |
+| Failover | Haiku, then Sonnet on the same Anthropic key; cross-provider step is a commented placeholder |
 
 On every boot `merge-config.py` merges the overlay into `/data/.hermes/config.yaml`. Git wins for the keys in the overlay. It never blocks startup, and writes `config.yaml.bak` before changing anything.
 
