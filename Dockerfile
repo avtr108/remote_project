@@ -2,6 +2,7 @@ FROM nousresearch/hermes-agent:v2026.8.3@sha256:16788311e2fa3035456bdc1bafb8ec2b
 
 COPY --chmod=0755 docker-entrypoint.sh /usr/local/bin/hermes-railway-entrypoint
 COPY --chmod=0755 merge-config.py /usr/local/bin/hermes-merge-config
+COPY skills /usr/local/share/hermes-skills
 COPY hermes-overlay.yaml /usr/local/share/hermes-overlay/hermes-overlay.yaml
 
 ENV HERMES_HOME=/data/.hermes \

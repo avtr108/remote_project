@@ -13,6 +13,20 @@ delegation:
   provider: anthropic
   model: claude-sonnet-5-5
 
+# Shortcuts for switching the model inside a chat: /model sonnet, /model haiku (session only).
+model_aliases:
+  sonnet:
+    provider: anthropic
+    model: claude-sonnet-5-5
+  haiku:
+    provider: anthropic
+    model: claude-haiku-5-5
+
+# Skills shipped from this repo (see skills/ and the Dockerfile).
+skills:
+  external_dirs:
+    - /usr/local/share/hermes-skills
+
 # Failover chain, tried in order when the primary fails (rate limit, overload, connection or
 # auth errors). Entries need both provider and model. Same Anthropic key, so it works now.
 fallback_providers:
