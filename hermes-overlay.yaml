@@ -1,0 +1,21 @@
+# Non-secret Hermes settings, merged into /data/.hermes/config.yaml on every boot.
+# Git is the source of truth: edits made in the dashboard for these keys are overwritten.
+# API keys do NOT belong here. Set them in Railway variables or the dashboard (Keys > Providers).
+
+# Haiku runs the main loop: every message, tool call and routine reasoning step.
+model:
+  provider: anthropic
+  default: claude-haiku-5-5
+
+# Sonnet runs delegated subagents. Hermes decides on its own to delegate tasks that
+# need heavier reasoning, judgment or long-form writing (delegate_task).
+delegation:
+  provider: anthropic
+  model: claude-sonnet-5-5
+
+# Cross-provider failover, tried in order when the primary fails (rate limit, overload,
+# connection or auth errors). Enable once the key for that provider is set, and check the
+# model ID on the provider's model list first. Entries need both provider and model.
+# fallback_providers:
+#   - provider: openrouter
+#     model: <anthropic haiku model id on openrouter>

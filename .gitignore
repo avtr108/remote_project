@@ -1,0 +1,8 @@
+__pycache__/
+.env
+data/
+*.swp
+*.swo
+.DS_Store
+.idea/
+*.iml
