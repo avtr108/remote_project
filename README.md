@@ -21,3 +21,7 @@ On every boot `merge-config.py` merges the overlay into `/data/.hermes/config.ya
 ## Secrets
 
 Never commit keys. Set `ANTHROPIC_API_KEY`, `TAVILY_API_KEY`, `ADMIN_USERNAME`, `ADMIN_PASSWORD` and channel tokens in Railway variables or the Hermes dashboard.
+
+## Checks
+
+`python3 scripts/check.py` (needs PyYAML) validates the overlay (valid YAML, no secrets), runs `merge-config.py` against a sample config (first boot, merge, untouched keys, backup, idempotent), checks every `SKILL.md` frontmatter, `railway.toml` and the Dockerfile's `COPY` sources and pinned base image. CI (`.github/workflows/check.yml`) runs it plus `shellcheck docker-entrypoint.sh` on every PR.
