@@ -27,6 +27,16 @@ skills:
   external_dirs:
     - /usr/local/share/hermes-skills
 
+# Memory writes need approval: Hermes asks in chat before saving; saves from the
+# background review wait in /memory pending (/memory approve <id>, /memory reject <id>).
+memory:
+  write_approval: true
+
+# Web search and page extraction via Tavily. The key is NOT here: set TAVILY_API_KEY
+# in Railway variables. Without it, web tools stay off.
+web:
+  backend: tavily
+
 # Failover chain, tried in order when the primary fails (rate limit, overload, connection or
 # auth errors). Entries need both provider and model. Same Anthropic key, so it works now.
 fallback_providers:
